@@ -1,0 +1,35 @@
+<%- include("partials/header.ejs") %>
+<div class="my-3">
+
+    <div class="heading">
+        <h1>All Posts</h1>
+    </div>
+
+    <% if (locals.postsMade && postsMade.length > 0) { %>
+        <% postsMade.forEach((post, index) => { %>
+            <div class="rows">
+                <div>
+                    <h4><%= post.title %> </h4>
+                </div>
+    
+                <div class="buttons">
+                    <form action="/post/<%= index %>">
+                        <input type="submit" value="view" />
+                    </form>
+                    <form action="/delete/<%= index %>" method="POST">
+                        <input type="submit" value="delete" />
+                    </form>
+                    <form action="/edit/<%= index %>">
+                        <input type="submit" value="edit" />
+                    </form>
+                </div>
+            </div>
+            
+        <% }); %>
+    <% } else { %>
+        <h4>Currently no posts made</h4>
+    <% } %>
+</div>
+
+
+<%- include("partials/footer.ejs") %>

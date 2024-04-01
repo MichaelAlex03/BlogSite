@@ -1,0 +1,40 @@
+<%- include("partials/header.ejs") %>
+    <div class="row justify-content-center vertical-alignment">
+        <div class="heading">
+            <h1>Hi, I am Michael</h1>
+            <p>Aspiring web developer and software engineer</p>
+        </div>
+
+        <div class="col-md-7">
+            <img src="/images/code.webp" alt="" id="rcorners1">
+        </div>
+
+        <div class="col-md-5 text-center">
+            <p class="align-middle">Welcome to my blog application. In order to create a new post click the post button in the top right. 
+                If you want to view your posts scroll down and look in the latest posts section.</p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center my-4 mx-2">
+        <div class="col-md-12" id="subHeading">
+            <h3>Latest Posts</h3>
+        </div>
+    </div>
+
+    <div class="row justify-content-center my-4 mx-2">
+        <div class="col-md-12 mb-5">
+            <% postsMade.forEach((post, index) => { %>
+                <div class="rows">
+                    <h5><%= post.title %></h5>
+                    <div class="buttons">
+                        <form action="/post/<%= index %>">
+                            <input type="submit" value="view" />
+                        </form>
+                    </div>
+                </div>
+                
+            <% }); %>
+        </div>
+    </div>
+<%- include("partials/footer.ejs") %>
+
