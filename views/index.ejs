@@ -16,24 +16,27 @@
     </div>
 
     <div class="row justify-content-center my-4 mx-2">
-        <div class="col-md-12" id="subHeading">
+        <div class="col-md-12" id="sub-heading">
             <h3>Latest Posts</h3>
         </div>
     </div>
 
     <div class="row justify-content-center my-4 mx-2">
         <div class="col-md-12 mb-5">
-            <% postsMade.forEach((post, index) => { %>
-                <div class="rows">
-                    <h5><%= post.title %></h5>
-                    <div class="buttons">
-                        <form action="/post/<%= index %>">
-                            <input type="submit" value="view" />
-                        </form>
+            <% if (postsMade.length > 0) { %>
+                <% postsMade.slice(0, 3).forEach((post, index) => { %>
+                    <div class="rows my-2">
+                        <h5><%= post.title %></h5>
+                        <div class="buttons">
+                            <form action="/post/<%= index %>">
+                                <input type="submit" value="view" />
+                            </form>
+                        </div>
                     </div>
-                </div>
-                
-            <% }); %>
+                <% }); %>
+            <% } else { %>
+                <p>Currently no posts made</p>
+            <% } %>
         </div>
     </div>
 <%- include("partials/footer.ejs") %>
