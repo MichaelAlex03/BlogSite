@@ -68,8 +68,6 @@ app.post('/edit/:postId', (req, res) => {
       content: req.body.body
   };
   posts[postId] = updatedPost;
-  console.log(updatedPost.title)
-  console.log(updatedPost.content)
   res.redirect('/view-posts');
 });
 
